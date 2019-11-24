@@ -14,7 +14,7 @@ double frand()
 
 int getRandomNewNumber()
 {
-    if (rand() < chanceOf4)
+    if (frand() < chanceOf4)
         return 2; // 2^2 == 4
     return 1;     // 2^1 == 2
 }
