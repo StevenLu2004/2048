@@ -10,11 +10,14 @@ $(BUILD)/2048.o: $(SRC)/2048.cpp $(SRC)/2048push.hpp $(SRC)/2048rand.hpp $(SRC)/
 	mkdir $(BUILD) || echo "failed to create ./$(BUILD)"
 	g++ -c -o $(BUILD)/2048.o $(SRC)/2048.cpp
 
-.PHONY: clean install
+.PHONY: clean cleanall install
 
 clean:
-	rm -r build
+	rm -r $(BUILD)
+
+cleanall:
+	rm -r $(BUILD) 2048
 
 install: 2048
 	echo "Trying to elevate access level..."
-	{ sudo cp -i 2048 /usr/local/bin/2048 ; } && { rm 2048 ; } ;
+	sudo cp -i 2048 /usr/local/bin/2048
