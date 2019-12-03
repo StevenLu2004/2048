@@ -47,8 +47,6 @@ int main(int argc, char const *argv[])
         bool moved;
         if (!strcmp(cmd, "q") || !strcmp(cmd, "\033"))
         {
-            AltSc::exit();
-            printf("User quitted the program.\r\n");
             break;
         }
         if (!strcmp(cmd, "w") || !strcmp(cmd, "\033[A"))
@@ -91,6 +89,8 @@ int main(int argc, char const *argv[])
         }
     }
     AltSc::exit();
+    if (!strcmp(cmd, "q") || !strcmp(cmd, "\033"))
+        printf("User quitted the program.\r\n");
     disableRawMode();
     return 0;
 }
